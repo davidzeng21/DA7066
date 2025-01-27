@@ -1,8 +1,9 @@
 # Task 1: Loading a sequence database from multiple files
 
 def read_fasta(f):
-    '''Reads a FASTA file f and returns a dictionary of sequences.'''
+    # Reads a FASTA file and returns a dictionary of sequences.
     def check_dna(seq):
+        # Verifies that the sequence contains only valid DNA characters.
         if len(set(seq) - set({'T', 'A', 'G', 'C'})) > 0:
             raise ValueError("DNA sequnece {0} contains at least one invalid character".format(seq))
     
@@ -26,7 +27,7 @@ def read_fasta(f):
 
 
 def add_to_database(d,f):
-    '''Reads a FASTA file f and adds its sequences to dictionary d.'''
+    # Adds sequences from file 'f' into the existing database dictionary 'd'.
     sequences = read_fasta(f)
     d[f] = sequences
     return d
@@ -43,7 +44,7 @@ def add_to_database(d,f):
 # Task 2: Analyzing all records from a species
 
 def filter_seqs(database, species):
-    '''Returns a dictionary with sequences from a given species.'''
+    # Filters and returns sequences from the specified species.
     filtered = {}
     for file in database:
         for name in database[file]:
@@ -57,7 +58,7 @@ def filter_seqs(database, species):
 #print(mus)
 
 def total_sequence_length(d):
-    '''Returns the total length of the sequences in a dictionary.'''
+    # Calculates the total length of all sequences in the given dictionary.
     # Raise an error if the input is not a dictionary
     if type(d) is not dict:
         raise ValueError("Input must be a dictionary")
@@ -83,7 +84,7 @@ def total_sequence_length(d):
 # Task 3: Writing a dictionary to a fasta file
 
 def write_fasta(d, f):
-    '''Writes a dictionary of sequences to a FASTA file.'''
+    # Writes all sequences in the dictionary 'd' to a FASTA file 'f'.
     with open(f, 'w') as file:
         for name, seq in d.items():
             file.write(name + '\n')
@@ -98,14 +99,17 @@ def write_fasta(d, f):
 # Task 4: Putting it all together
 
 def main():
+    # Main function to interact with the user and perform selected tasks.
     d = {}
     print("(a) add a file to the database;")
     print("(b) print the length of all sequences of a given species;")
     print("(c) write out a fasta file of all sequences of a given species;")
     print("(q) quit;")
     while True:
+        # Loop to handle user input and perform tasks.
         opt = input("Provide an option: ")
         if opt == 'a':
+            # Option 'a' for adding a file to the database.
             while True:
                 try:
                     f = input("Provide file path: ")
@@ -116,23 +120,24 @@ def main():
                 except ValueError as e:
                     print(f"Invalid sequence error: {e}. Please provide a valid FASTA file.")
         elif opt == 'b':
+            # Option 'b' for printing total sequence length of a given species.
             species = input("Which species: ")
             filtered = filter_seqs(d, species)
             print(total_sequence_length(filtered))
         elif opt == 'c':
+            # Option 'c' for writing out a FASTA file of filtered sequences.
             species = input("Enter the species: ")
             filepath = input("Which file path: ")
             filtered = filter_seqs(d, species)
             write_fasta(filtered, filepath)
             print("File saved.")
         elif opt == 'q':
+            # Option 'q' to quit.
             print("Goodbye!")
             break
         else:
+            # Handle invalid inputs.
             print("Invalid option. Try again.")
-
-
-
 
 main()
 
