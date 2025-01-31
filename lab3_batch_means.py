@@ -1,15 +1,6 @@
 import argparse
 import matplotlib.pyplot as plt
 
-# Sample data:
-# 1, 0.1, 0.2, 73
-# 1, 0.11, 0.1, 101
-# 2, 0.23, -0.01, 17
-# 2, 0.9, 0.82, 23
-#
-# Pretend this is taken from two (or more) different experiments:
-# batch 1 and batch 2.
-
 # Function 1: Read the data
 # Some variable names are changed to make the code more readable.
 def parse_line(line):
@@ -147,17 +138,16 @@ def plot_data(data, f, radius):
     print(f"A plot of the data can be found in {f}")
     # plt.show()
 
-
 # Main function
 def main():
     '''
     This is the main body of the program.
     '''
     parser = argparse.ArgumentParser(description='Process some data.')
-    parser.add_argument('radius', type=float, help='the radius of the measurement error')
-    parser.add_argument('infile', type=str, help='the input file containing the data')
-    parser.add_argument('outfile', type=str, help='the output file to save the plot')
-    args = parser.parse_args()
+    parser.add_argument('radius', type=float, help='the radius of the measurement error') # Add a new argument for the radius
+    parser.add_argument('infile', type=str, help='the input file containing the data') # Add a new argument for the input file
+    parser.add_argument('outfile', type=str, help='the output file to save the plot') # Add a new argument for the output file
+    args = parser.parse_args() # Parse the arguments
 
     data = read_data(args.infile)
     result = process_data(data)
@@ -167,15 +157,3 @@ def main():
 # Start the main program: this is idiomatic python
 if __name__ == '__main__':
     main()
-
-# The idea with this idiom is that if this code is loaded as a module,
-# then the __name__ variable (internal to Python) is not __main__ and
-# the body of the program is not executed. Consider what would happen
-# if the main function was not in a function: an import statement (for
-# example "import o4") would load the functions and then executed
-# "filename = input(...)" and that is probably not what you want. The
-# idiom is simply an easy way of ensuring that some code is only
-# executed when run as an actual program.
-#
-# Try it out by importing this file into another project!
-
