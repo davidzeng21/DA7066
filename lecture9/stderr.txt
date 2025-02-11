@@ -1,0 +1,91 @@
+Warning: Tried divide 1114434 with 0.
+Warning: Tried divide 1657782 with 0.
+Warning: Tried divide 2457554 with 0.
+Warning: Tried divide 2910264 with 0.
+Warning: Tried divide 3648977 with 0.
+Warning: Tried divide 3770846 with 0.
+Warning: Tried divide 4773055 with 0.
+Warning: Tried divide 5741835 with 0.
+Warning: Tried divide 5829687 with 0.
+Warning: Tried divide 7345640 with 0.
+Warning: Tried divide 7352591 with 0.
+Warning: Tried divide 7706852 with 0.
+Warning: Tried divide 9395838 with 0.
+Warning: Tried divide 9959571 with 0.
+Warning: Tried divide 13748595 with 0.
+Warning: Tried divide 14486381 with 0.
+Warning: Tried divide 14570177 with 0.
+Warning: Tried divide 14905025 with 0.
+Warning: Tried divide 15694301 with 0.
+Warning: Tried divide 17633263 with 0.
+Warning: Tried divide 17703600 with 0.
+Warning: Tried divide 17704809 with 0.
+Warning: Tried divide 18518042 with 0.
+Warning: Tried divide 18748058 with 0.
+Warning: Tried divide 19250210 with 0.
+Warning: Tried divide 20173334 with 0.
+Warning: Tried divide 20179846 with 0.
+Warning: Tried divide 20195764 with 0.
+Warning: Tried divide 20707348 with 0.
+Warning: Tried divide 21247315 with 0.
+Warning: Tried divide 22642917 with 0.
+Warning: Tried divide 23855562 with 0.
+Warning: Tried divide 25418442 with 0.
+Warning: Tried divide 25651006 with 0.
+Warning: Tried divide 27837472 with 0.
+Warning: Tried divide 27840876 with 0.
+Warning: Tried divide 27938435 with 0.
+Warning: Tried divide 28379095 with 0.
+Warning: Tried divide 29124122 with 0.
+Warning: Tried divide 29292779 with 0.
+Warning: Tried divide 30048494 with 0.
+Warning: Tried divide 30691050 with 0.
+Warning: Tried divide 32165539 with 0.
+Warning: Tried divide 33175121 with 0.
+Warning: Tried divide 34536710 with 0.
+Warning: Tried divide 34540325 with 0.
+Warning: Tried divide 34865890 with 0.
+Warning: Tried divide 35924912 with 0.
+Warning: Tried divide 36366011 with 0.
+Warning: Tried divide 38256603 with 0.
+Warning: Tried divide 40507883 with 0.
+Warning: Tried divide 40767405 with 0.
+Warning: Tried divide 41901448 with 0.
+Warning: Tried divide 42151732 with 0.
+Warning: Tried divide 43266336 with 0.
+Warning: Tried divide 43320634 with 0.
+Warning: Tried divide 43715005 with 0.
+Warning: Tried divide 44196421 with 0.
+Warning: Tried divide 45227589 with 0.
+Warning: Tried divide 45913369 with 0.
+Warning: Tried divide 47978338 with 0.
+Warning: Tried divide 48240494 with 0.
+Warning: Tried divide 49110013 with 0.
+Warning: Tried divide 52132590 with 0.
+Warning: Tried divide 53073421 with 0.
+Warning: Tried divide 54278634 with 0.
+Warning: Tried divide 56418074 with 0.
+Warning: Tried divide 56467871 with 0.
+Warning: Tried divide 57016808 with 0.
+Warning: Tried divide 58049419 with 0.
+Warning: Tried divide 59757861 with 0.
+Warning: Tried divide 59845455 with 0.
+Warning: Tried divide 61998663 with 0.
+Warning: Tried divide 62150334 with 0.
+Warning: Tried divide 63723532 with 0.
+Warning: Tried divide 65550618 with 0.
+Warning: Tried divide 65825713 with 0.
+Warning: Tried divide 67345192 with 0.
+Warning: Tried divide 68675384 with 0.
+Warning: Tried divide 72590989 with 0.
+Warning: Tried divide 75463109 with 0.
+Traceback (most recent call last):
+  File "example2.py", line 5, in <module>
+    n = random.randint(0,1000000)
+  File "/usr/lib/python3.8/random.py", line 248, in randint
+    return self.randrange(a, b+1)
+  File "/usr/lib/python3.8/random.py", line 224, in randrange
+    return istart + self._randbelow(width)
+  File "/usr/lib/python3.8/random.py", line 253, in _randbelow_with_getrandbits
+    getrandbits = self.getrandbits
+KeyboardInterrupt
