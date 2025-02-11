@@ -7,21 +7,24 @@ def plot_observations_per_year(data):
 
     Args:
         data (list): A list of dictionaries containing butterfly observation data.
+
+    Output:
+        A plot of the number of observations per year for a butterfly species.
     """
-    year_observations = {}
+    year_observations = {} # dictionary to store the year and the number of observations
     artnamn = data[0]['Artnamn']
     for row in data:
-        try:
+        try: # try to convert the date to a year and the number of observations to an integer
             year = datetime.datetime.strptime(row['Slutdatum'], '%Y-%m-%d').year
             antal = row['Antal']
-            if year not in year_observations:
+            if year not in year_observations: # if the year is not in the dictionary, add it and the number of observations
                 year_observations[year] = antal
-            else:
+            else: # if the year is in the dictionary, add the number of observations to the existing value
                 year_observations[year] += antal
-        except ValueError:
+        except ValueError: # if the data is invalid, it is skipped
             continue
 
-    sorted_year_observations = dict(sorted(year_observations.items()))
+    sorted_year_observations = dict(sorted(year_observations.items())) # sort the dictionary by year
 
     plt.figure()
     plt.plot(sorted_year_observations.keys(), sorted_year_observations.values(), marker='o', markersize=3)
