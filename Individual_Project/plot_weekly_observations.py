@@ -1,15 +1,15 @@
 import datetime
 import matplotlib.pyplot as plt
 
-def plot_weekly_observations(data):
+def calculate_weekly_observations(data):
     """
-    Plots the weekly observations for a butterfly species in 2022.
+    Calculates the weekly observations for a butterfly species in 2022.
 
     Args:
         data (list): A list of dictionaries containing butterfly observation data.
 
-    Output:
-        A plot of the weekly observations for a butterfly species in 2022.
+    Returns:
+        tuple: A tuple containing the list of weekly percentages and the active weeks (start_week, end_week).
     """
     weeks = [0] * 53
     artnamn = data[0]['Artnamn']
@@ -29,6 +29,20 @@ def plot_weekly_observations(data):
 
     start_week = next(i for i, total in enumerate(cumulative) if total >= 0.05) # find the week for 5%
     end_week = next(i for i, total in enumerate(cumulative) if total >= 0.95) # find the week for 95%
+
+    return percentages, start_week, end_week, artnamn
+
+def plot_weekly_observations(data):
+    """
+    Plots the weekly observations for a butterfly species in 2022.
+
+    Args:
+        data (list): A list of dictionaries containing butterfly observation data.
+
+    Output:
+        A plot of the weekly observations for a butterfly species in 2022.
+    """
+    percentages, start_week, end_week, artnamn = calculate_weekly_observations(data)
 
     plt.figure()
     plt.bar(range(1, 54), percentages, color=['blue' if start_week <= i <= end_week else 'gray' for i in range(53)]) # plot the bars and highlight the active weeks
