@@ -1,7 +1,6 @@
 import csv
 import datetime
 import matplotlib.pyplot as plt
-import numpy as np
 
 def read_data(file_path):
     data = []
