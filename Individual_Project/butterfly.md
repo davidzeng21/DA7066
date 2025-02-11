@@ -75,3 +75,18 @@ The number of observations over the years can be analyzed using the diagram for 
 
 ### Are there any patterns in the times when butterflies are active? Are there differences between species?
 The weekly observations for the year 2022 can be analyzed to identify patterns in the times when butterflies are active. By examining the bar chart showing the percentage of observations per week, we can observe any patterns in butterfly activity. Additionally, by comparing the weekly observations for different species, we can identify any differences in their activity patterns.
+
+## Reflections on Code Design
+
+The code is designed with modularity in mind, separating different functionalities into distinct files. This separation allows for easier maintenance and testing of individual components. Each file is responsible for a specific task, such as reading data or generating a particular type of diagram, which adheres to the single responsibility principle. This design choice enhances the readability and scalability of the code, making it easier to extend or modify in the future.
+
+## Time and Memory Efficiency
+
+### Time Efficiency
+The program efficiently processes the CSV data by reading it once and storing it in memory for subsequent operations. The use of Python's built-in libraries, such as `csv` and `datetime`, ensures that data parsing and manipulation are performed quickly. The diagram generation using `matplotlib` is optimized by only processing the necessary data for each plot, minimizing unnecessary computations.
+
+### Memory Efficiency
+The program uses lists and dictionaries to store and manage data, which are memory-efficient structures for the operations performed. By keeping the data in memory, the program avoids repeated file I/O operations, which can be costly in terms of time. However, for very large datasets, this approach might lead to high memory usage. In such cases, further optimizations, such as streaming data processing or using more memory-efficient data structures, could be considered.
+
+Overall, the program balances time and memory efficiency well for the expected size of the input data, providing a responsive and effective analysis tool for butterfly observations.
+
